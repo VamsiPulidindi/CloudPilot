@@ -46,5 +46,22 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          load: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cloudpilot:latest
+          push: false
+
+      - name: Run Trivy Vulnerability Scanner
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: cloudpilot:latest
+          format: table
+          exit-code: 0
+          ignore-unfixed: true
+          severity: CRITICAL,HIGH
+
+      - name: Push Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/cloudpilot:latest
