@@ -1,0 +1,6 @@
+{
+  "name": "CloudPilot",
+  "description": "Multi-Cloud Recommendation Platform for startups to choose their ideal cloud provider.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
