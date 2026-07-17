@@ -36,8 +36,6 @@ RUN mkdir -p /app/data
 COPY --from=builder --chown=nextjs:nextjs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nextjs /app/.next/static ./.next/static
 
-# Only if the folder exists
-COPY --from=builder --chown=nextjs:nextjs /app/assets ./assets
 
 USER nextjs
 
