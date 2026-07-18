@@ -1,13 +1,8 @@
 services:
 
   cloudpilot:
+    image: vamsiv22/cloudpilot:latest
     container_name: cloudpilot
-
-    build:
-      context: .
-      dockerfile: Dockerfile
-
-    image: cloudpilot:latest
 
     restart: unless-stopped
 
@@ -38,7 +33,7 @@ services:
     container_name: cloudpilot-nginx
 
     depends_on:
-      - cloudpilot
+        - cloudpilot
 
     restart: unless-stopped
 
